@@ -1,0 +1,10 @@
+<h1><%= @question.content %></h1>
+<%= form_with(url: question_path(@question), method: :patch) do |f| %>
+  <% @question.options.each do |option| %>
+    <div>
+      <%= f.radio_button :option_id, option.id %>
+      <%= f.label :option_id, option.content, value: option.id %>
+    </div>
+  <% end %>
+  <%= f.submit "次へ" %>
+<% end %>
