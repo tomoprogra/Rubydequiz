@@ -21,8 +21,12 @@ test:
   database: storage/test.sqlite3
 
 production:
-  <<: *default
-  database: storage/production.sqlite3
+  adapter: mysql2
+  encoding: utf8mb4
+  username: 7ypmnaegmirrt8qoy5lw
+  host: aws.connect.psdb.cloud
+  database: myapp_production
+  password: pscale_pw_fXGbncTpPM5KlScBC9UM4CBL0suAywqziSyWh1bjLDY
 development:
   <<: *default
   database: <%= ENV['ENABLE_PSDB'] ? 'myapp_production' : 'myapp_production_development' %>
