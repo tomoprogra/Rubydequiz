@@ -11,26 +11,20 @@ default: &default
 
 development:
   <<: *default
-  database: storage/development.sqlite3
+  database: <%= ENV['ENABLE_PSDB'] ? 'myapp_production' : 'myapp_production_development' %>
+  port: <%= ENV['ENABLE_PSDB'] ? 3305 : ENV.fetch("DB_PORT", 3306) %>
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
   database: storage/test.sqlite3
 
 production:
-  development:
   <<: *default
   adapter: mysql2
   database: myapp_production
-  username: cfxnmawk9mkkegjhyhw4
-  host: aws.connect.psdb.cloud
-  password: pscale_pw_NgQdLgdJfHnu122KSSyiAULcpmBKha3RL9UwQPMTQhs
+  username: <%= ENV['PRODUCTION_DB_USERNAME'] %>
+  host: <%= ENV['PRODUCTION_DB_HOST'] %>
+  password: <%= ENV['PRODUCTION_DB_PASSWORD'] %>
   ssl_mode: verify_identity
   sslca: "/etc/ssl/cert.pem"
-development:
-  <<: *default
-  database: <%= ENV['ENABLE_PSDB'] ? 'myapp_production' : 'myapp_production_development' %>
-  port: <%= ENV['ENABLE_PSDB'] ? 3305 : ENV.fetch("DB_PORT", 3306) %>
+
