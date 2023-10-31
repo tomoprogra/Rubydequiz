@@ -23,3 +23,7 @@ test:
 production:
   <<: *default
   database: storage/production.sqlite3
+development:
+  <<: *default
+  database: <%= ENV['ENABLE_PSDB'] ? 'myapp_production' : 'myapp_production_development' %>
+  port: <%= ENV['ENABLE_PSDB'] ? 3305 : ENV.fetch("DB_PORT", 3306) %>
