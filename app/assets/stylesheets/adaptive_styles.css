@@ -1,0 +1,19 @@
+/* デフォルトのスタイル */
+body {
+    font-size: 16px;
+  }
+  
+  /* スマートフォン向けのスタイル */
+  @media (max-width: 600px) {
+    body {
+      font-size: 14px;
+    }
+  }
+  
+  /* タブレット向けのスタイル */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    body {
+      font-size: 15px;
+    }
+  }
+  

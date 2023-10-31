@@ -1,3 +1,23 @@
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="text-center">
 <h1>クイズの結果</h1>
 
 <p>あなたのスコアは: <%= @score %> / 5</p>
+<p><%= @comment %></p>
+<%= link_to "もう一度スタート", root_path, class: "btn btn-primary" %>
+<%= link_to "Twitterで結果を共有", "https://twitter.com/intent/tweet?text=私のスコアは5点中#{@score}点でした！", target: "_blank", class: "btn btn-primary" %>
+<% @questions.each do |question| %>
+  <div>
+    <p><%= question.content %></p>
+    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#explanation-<%= question.id %>" aria-expanded="false" aria-controls="explanation-<%= question.id %>">
+      解説を見る
+    </button>
+    <div class="collapse" id="explanation-<%= question.id %>">
+      <div class="card card-body">
+        <%= question.explanation %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+</div>

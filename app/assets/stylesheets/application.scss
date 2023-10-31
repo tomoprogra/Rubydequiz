@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ .background-class {
+    background-image: asset-url('3.png');
+    background-size: cover; /* 画像を要素にフィットさせる */
+    background-repeat: no-repeat; /* 画像の繰り返しを防ぐ */
+    background-position: center; /* 画像を中央に配置 */
+}
+@media (max-width: 768px) {
+    .background-class {
+        background-position: top center; /* 画像を上部中央に配置 */
+        background-size: auto 100%; /* 画像の高さを100%に設定し、幅は自動調整 */
+    }
+}
+
+

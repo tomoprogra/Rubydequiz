@@ -1,3 +1,5 @@
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="text-center">
 <h1><%= @question.content %></h1>
 <%= form_with(url: question_path(@question), method: :patch) do |f| %>
   <% @question.options.each do |option| %>
@@ -8,3 +10,16 @@
   <% end %>
   <%= f.submit "次へ" %>
 <% end %>
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+</div>
+</div>

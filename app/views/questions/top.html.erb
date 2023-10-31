@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="text-center">
+    <h1>Rubyクイズへようこそ!</h1>
+    <p>
+      この楽しくて挑戦的なクイズで、Rubyに関する知識をテストしてみましょう。
+      質問にできるだけ正確に答えて、Rubyをどれだけ知っているか確認してみましょう!
+      全部で5問あります!
+    </p>
+    <%= link_to "クイズを開始", question_path(Question.first), class: "btn btn-primary" %>
+  </div>
+</div>
