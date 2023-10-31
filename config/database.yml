@@ -27,10 +27,9 @@ production:
   host: aws.connect.psdb.cloud
   database: myapp_production
   password: pscale_pw_fXGbncTpPM5KlScBC9UM4CBL0suAywqziSyWh1bjLDY
-
-  sslca: /path/to/ca_file
-  sslcert: /path/to/cert_file
-  sslkey: /path/to/key_file
+  sslca: /path/to/ca
+  sslcert: /path/to/cert
+  sslkey: /path/to/key
 development:
   <<: *default
   database: <%= ENV['ENABLE_PSDB'] ? 'myapp_production' : 'myapp_production_development' %>
