@@ -11,8 +11,14 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV['ENABLE_PSDB'] ? 'myapp_production' : 'myapp_production_development' %>
-  port: <%= ENV['ENABLE_PSDB'] ? 3305 : ENV.fetch("DB_PORT", 3306) %>
+  database: <%= ENV['ENABLE_PSDB'] == 'true' ? 'myapp_production' : 'db/myapp_development.sqlite3' %>
+  adapter: <%= ENV['ENABLE_PSDB'] == 'true' ? 'mysql2' : 'sqlite3' %>
+  username: <%= ENV['ENABLE_PSDB'] == 'true' ? ENV['DEVELOPMENT_DB_USERNAME'] : nil %>
+  host: <%= ENV['ENABLE_PSDB'] == 'true' ? ENV['DEVELOPMENT_DB_HOST'] : nil %>
+  password: <%= ENV['ENABLE_PSDB'] == 'true' ? ENV['DEVELOPMENT_DB_PASSWORD'] : nil %>
+  port: <%= ENV['ENABLE_PSDB'] == 'true' ? 3305 : nil %>
+  ssl_mode: <%= ENV['ENABLE_PSDB'] == 'true' ? 'verify_identity' : nil %>
+  sslca: <%= ENV['ENABLE_PSDB'] == 'true' ? '/etc/ssl/cert.pem' : nil %>
 
 test:
   <<: *default
