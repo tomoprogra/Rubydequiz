@@ -21,15 +21,15 @@ test:
   database: storage/test.sqlite3
 
 production:
+  development:
+  <<: *default
   adapter: mysql2
-  encoding: utf8mb4
-  username: 7ypmnaegmirrt8qoy5lw
-  host: aws.connect.psdb.cloud
   database: myapp_production
-  password: pscale_pw_fXGbncTpPM5KlScBC9UM4CBL0suAywqziSyWh1bjLDY
-  sslca: /path/to/ca
-  sslcert: /path/to/cert
-  sslkey: /path/to/key
+  username: cfxnmawk9mkkegjhyhw4
+  host: aws.connect.psdb.cloud
+  password: pscale_pw_NgQdLgdJfHnu122KSSyiAULcpmBKha3RL9UwQPMTQhs
+  ssl_mode: verify_identity
+  sslca: "/etc/ssl/cert.pem"
 development:
   <<: *default
   database: <%= ENV['ENABLE_PSDB'] ? 'myapp_production' : 'myapp_production_development' %>
