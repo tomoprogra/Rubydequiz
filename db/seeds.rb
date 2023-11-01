@@ -179,19 +179,10 @@ questions_data = [
   }
 ]
 
-questions = []
-options = []
-
+# データの保存
 questions_data.each do |data|
-  question = Question.new(content: data[:content], explanation: data[:explanation], level: data[:level])
-  data[:options].each do |option_data|
-    option = Option.new(option_data)
-    option.question = question
-    options << option
-  end
-  questions << question
+    question = Question.create(content: data[:content], explanation: data[:explanation], level: data[:level])
+    data[:options].each do |option_data|
+      question.options.create(option_data)
+    end
 end
-
-# 一括INSERT
-Question.import questions
-Option.import options
