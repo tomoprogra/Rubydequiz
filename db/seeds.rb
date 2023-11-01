@@ -9,10 +9,8 @@
 #   end
 Option.delete_all
 Question.delete_all
-questions = []
-options = []
-
 questions_data = [
+  # 初級
   {
     content: "1問目: Rubyの基本的なデータ型として正しいものは？",
     level: "beginner",
@@ -181,24 +179,19 @@ questions_data = [
   }
 ]
 
-Question.transaction do
-  questions_data.each do |data|
-    question = Question.create!(
-      content: data[:content],
-      explanation: data[:explanation],  
-      level: data[:level]
-    )
+questions = []
+options = []
 
-    data[:options].each do |option_data|
-      option = Option.new(
-        content: option_data[:content],
-        correct: option_data[:correct]
-      )
-      option.question = question
-      option.save!
-      question.options << option
-    end
-
-    question.save!
+questions_data.each do |data|
+  question = Question.new(content: data[:content], explanation: data[:explanation], level: data[:level])
+  data[:options].each do |option_data|
+    option = Option.new(option_data)
+    option.question = question
+    options << option
   end
+  questions << question
 end
+
+# 一括INSERT
+Question.import questions
+Option.import options
