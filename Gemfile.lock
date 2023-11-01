@@ -154,6 +154,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
+    pg (1.5.4)
     popper_js (2.11.8)
     psych (5.1.1.1)
       stringio
@@ -268,6 +269,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   mysql2
+  pg
   puma (>= 5.0)
   rails (~> 7.1.1)
   sassc (~> 2.4)
