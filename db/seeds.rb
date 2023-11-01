@@ -7,8 +7,6 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Option.delete_all
-Question.delete_all
 questions_data = [
   # 初級
   {
@@ -180,9 +178,13 @@ questions_data = [
 ]
 
 # データの保存
+Option.delete_all
+Question.delete_all
+
 questions_data.each do |data|
-    question = Question.create(content: data[:content], explanation: data[:explanation], level: data[:level])
-    data[:options].each do |option_data|
-      question.options.create(option_data)
-    end
+  question = Question.new(content: data[:content], explanation: data[:explanation], level: data[:level])
+  data[:options].each do |option_data|
+    question.options.build(option_data)
+  end
+  question.save!
 end
