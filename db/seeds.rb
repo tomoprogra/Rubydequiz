@@ -7,8 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Option.delete_all
+Question.delete_all
+questions = []
+options = []
+
 questions_data = [
-  # 初級
   {
     content: "1問目: Rubyの基本的なデータ型として正しいものは？",
     level: "beginner",
@@ -177,10 +181,24 @@ questions_data = [
   }
 ]
 
-# データの保存
-questions_data.each do |data|
-    question = Question.create(content: data[:content], explanation: data[:explanation], level: data[:level])
+Question.transaction do
+  questions_data.each do |data|
+    question = Question.create!(
+      content: data[:content],
+      explanation: data[:explanation],  
+      level: data[:level]
+    )
+
     data[:options].each do |option_data|
-      question.options.create(option_data)
+      option = Option.new(
+        content: option_data[:content],
+        correct: option_data[:correct]
+      )
+      option.question = question
+      option.save!
+      question.options << option
     end
+
+    question.save!
+  end
 end
