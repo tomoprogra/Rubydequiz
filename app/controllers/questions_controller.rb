@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_default_score, only: [:by_level]
   before_action :set_question, only: [:show, :update]
+  caches_action :index, cache_path: "questions-index"
 
   def top
     session[:current_question_index] = 0
