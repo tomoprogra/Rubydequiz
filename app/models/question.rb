@@ -1,9 +1,7 @@
 class Question < ApplicationRecord
-  has_many :options, dependent: :destroy
-  validates :content, presence: true
-  accepts_nested_attributes_for :options
+  has_many :options
   scope :first_question, -> { order(:id).first }
   def next
-    Question.where("id > ?", id).order(:id).first
+    Question.where("id > ?", self.id).order(id: :asc).first
   end
 end
