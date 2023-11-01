@@ -1,6 +1,5 @@
 class CreateOptions < ActiveRecord::Migration[7.1]
   def change
-    add_index :options, :content
     create_table :options do |t|
       t.string :content, null: false
       t.boolean :correct, default: false
@@ -8,5 +7,6 @@ class CreateOptions < ActiveRecord::Migration[7.1]
       t.integer :id, primary_key: true
       t.timestamps
     end
+    add_index :options, :content
   end
 end
