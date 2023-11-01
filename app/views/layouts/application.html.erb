@@ -18,13 +18,11 @@
   <!-- ここにナビゲーションバーを追加 -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Rubyでquiz</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <%= link_to 'トップページ', root_path, class: 'nav-link' %>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-        <%= link_to 'トップページ', root_path, class: 'nav-link' %>
+        
         </li>
         <!-- 他のリンクをこちらに追加 -->
       </ul>

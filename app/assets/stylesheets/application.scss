@@ -15,7 +15,7 @@
  */
  @import "bootstrap";
  .background-class {
-    background-image: asset-url('3.png');
+    background-image: asset-url('8005.jpg');
     background-size: cover; /* 画像を要素にフィットさせる */
     background-repeat: no-repeat; /* 画像の繰り返しを防ぐ */
     background-position: center; /* 画像を中央に配置 */
@@ -25,6 +25,43 @@
         background-position: top center; /* 画像を上部中央に配置 */
         background-size: auto 100%; /* 画像の高さを100%に設定し、幅は自動調整 */
     }
-}
-
-
+} 
+.clickable-link {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(to bottom, #3339e5, #957cdf);
+  border-radius: 10px;
+  margin: 16px; 
+  }
+  
+  .clickable-link:active {
+    box-shadow: inset 0 0 20px #ddd; /*影を付ける*/
+  }
+  p {
+    margin: 0 7%;
+    text-align: justify;
+    font-size: 15px;
+    color: #73044a;
+    line-height: 1.8;
+    text-shadow: 1px 1px 1px rgba(12, 10, 10, 0.1);
+    font-family: "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", sans-serif;
+  }
+  a {
+    font-size: 25px;
+    font-family: "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", sans-serif;
+  }
+ h2 {
+  font-size: 25px;
+  font-family: "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", sans-serif;
+ }
+ h1 {
+  font-size: 25px;
+  font-family: "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", sans-serif;
+ }
+ button{
+  font-family: "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", sans-serif;
+ }
+ .card-body{
+  margin: 0 7%;
+  text-align: justify;
+  font-family: "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", sans-serif;
+ }

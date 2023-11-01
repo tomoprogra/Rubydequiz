@@ -1,25 +1,20 @@
 <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
   <div class="text-center">
-<h1><%= @question.content %></h1>
-<%= form_with(url: question_path(@question), method: :patch) do |f| %>
-  <% @question.options.each do |option| %>
-    <div>
-      <%= f.radio_button :option_id, option.id %>
-      <%= f.label :option_id, option.content, value: option.id %>
-    </div>
-  <% end %>
-  <%= f.submit "次へ" %>
-<% end %>
-<% if flash[:notice] %>
-  <div class="alert alert-success">
-    <%= flash[:notice] %>
+    <h1><%= @question.content %></h1>
+    <%= form_with url: question_path(@question), method: :patch do |f| %>
+        <%= f.hidden_field :question_id, value: @question.id %>
+        <% @question.options.each do |option| %>
+          <%= f.radio_button :answer, option.id %>
+          <%= f.label :answer, option.content %>
+          <br>
+        <% end %>
+        <%= f.submit "回答" %>
+    <% end %>
+    <% if flash[:error] %>
+      <div class="alert alert-danger">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
-<% if flash[:error] %>
-  <div class="alert alert-danger">
-    <%= flash[:error] %>
-  </div>
-<% end %>
-</div>
-</div>

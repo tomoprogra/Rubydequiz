@@ -6,6 +6,9 @@
       質問にできるだけ正確に答えて、Rubyをどれだけ知っているか確認してみましょう!
       全部で5問あります!
     </p>
-    <%= link_to "クイズを開始", question_path(Question.first), class: "btn btn-primary" %>
+    <h2>難易度を選んでください</h2>
+    <%= link_to "初級編", questions_by_level_path(level: "beginner", reset: true), class: "btn btn-primary clickable-link" %>
+    <%= link_to "中級編", questions_by_level_path(level: "intermediate", reset: true), class: "btn btn-primary clickable-link" %>
+    <%= link_to "上級編", questions_by_level_path(level: "advanced", reset: true), class: "btn btn-primary clickable-link" %>    
   </div>
 </div>
