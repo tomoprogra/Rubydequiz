@@ -5,7 +5,7 @@
     <p>あなたのスコアは: <%= @score %> / 5問中</p>
     <p><%= @comment %></p>
     <%= link_to "もう一度スタート", root_path, class: "btn btn-primary clickable-link" %>
-    <%= link_to "Twitterで結果を共有", "https://twitter.com/intent/tweet?text=難易度:#{t("levels.#{@level.downcase}")} - 私のスコアは5点中#{@score}点でした！", target: "_blank", class: "btn btn-primary clickable-link" %>
+    <%= link_to "Twitterで結果を共有", "https://twitter.com/intent/tweet?text=難易度:#{t("levels.#{@level.downcase}")} - 私のスコアは5点中#{@score}点でした！https://rubydequiz.onrender.com", target: "_blank", class: "btn btn-primary clickable-link" %>
     <% @questions.where(level: @level.downcase).each do |question| %>
       <div>
         <p><%= question.content %></p>
