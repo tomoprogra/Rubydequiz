@@ -61,7 +61,7 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-
+  config.assets.compile = false
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
@@ -73,10 +73,4 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
-end
-
-config.after_initialize do
-  Bullet.enable = true
-  Bullet.alert = true
-  Bullet.rails_logger = true
 end
