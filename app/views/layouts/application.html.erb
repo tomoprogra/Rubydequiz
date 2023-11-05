@@ -5,22 +5,17 @@
     <title>Rubydequiz</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.x/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- JS -->  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.x/dist/js/bootstrap.bundle.min.js"></script>
     <%= stylesheet_link_tag "application","data-turbo-track": "reload" %>
   </head>
-
   <body class="background-class">
-    <!-- ここにナビゲーションバーを追加 -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Rubyでquiz</a>
       <%= link_to 'トップページ', root_path, class: 'nav-link' %>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active"></li>
-          <!-- 他のリンクをこちらに追加 -->
         </ul>
       </div>
     </nav>
